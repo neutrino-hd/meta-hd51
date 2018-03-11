@@ -80,6 +80,7 @@ IMAGE_CMD_hd-emmc_append = "\
     cp ${IMGDEPLOYDIR}/${IMAGE_LINK}.ext4.bz2 ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
     cp zImage ${IMAGEDIR}/${KERNEL_FILE}; \
     echo ${IMAGE_NAME} > ${IMAGEDIR}/imageversion; \
+    echo ${IMAGE_NAME} > ${DEPLOY_DIR_IMAGE}/imageversion; \
     zip ${IMAGE_NAME}_flavour_${FLAVOUR}_flash.zip ${IMAGEDIR}/*; \
     ln -sf ${IMAGE_NAME}_flavour_${FLAVOUR}_flash.zip ${IMAGENAME}_flash.zip; \
     rm -Rf ${IMAGEDIR}; \
@@ -104,4 +105,5 @@ IMAGE_CMD_hd-emmc_append = "\
     rm -f ${DEPLOY_DIR_IMAGE}/*.json; \
     rm -f ${DEPLOY_DIR_IMAGE}/*.img; \
     rm -Rf ${IMAGEDIR}; \
+    \
 "
