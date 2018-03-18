@@ -1,0 +1,26 @@
+From 3681ecb7ccbf408ec64ce51dc8a34f36051eab92 Mon Sep 17 00:00:00 2001
+From: Markus Volk <flk@buildserver>
+Date: Tue, 5 Dec 2017 06:34:26 +0100
+Subject: [PATCH] test
+
+Signed-off-by: Markus Volk <flk@buildserver>
+---
+ src/shared/dissect-image.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/shared/dissect-image.c b/src/shared/dissect-image.c
+index 505a83f..233571d 100644
+--- a/src/shared/dissect-image.c
++++ b/src/shared/dissect-image.c
+@@ -319,7 +319,7 @@ int dissect_image(int fd, const void *root_hash, size_t root_hash_size, DissectI
+                 /* Filter out weird MMC RPMB partitions, which cannot reasonably be read, see
+                  * https://github.com/systemd/systemd/issues/5806 */
+                 sysname = udev_device_get_sysname(q);
+-                if (sysname && startswith(sysname, "mmcblk") && endswith(sysname, "rpmb"))
++                if (sysname && startswith(sysname, "mmcblk") && endswith(sysname, "*"))
+                         continue;
+ 
+                 node = udev_device_get_devnode(q);
+-- 
+2.1.4
+
